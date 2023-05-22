@@ -21,13 +21,21 @@ def search_t_flight(v0, angle):
 
     return t_flight, d_max, h_max
 
+
+
 """
 sur streamlit
 """
 st.title("Courbe de ballon de rugby")
 v0 = st.number_input("Vitesse initiale (en m/s)", min_value=0.0, step=1.0, value=10.0)
 angle = st.number_input("Angle initial (en degrés)", min_value=0.0, max_value=90.0, step=1.0, value=45.0)
-tfinal = st.slider("Temps (en secondes)", min_value=0.0, max_value=1.0, step=0.01, value=0.1)
+
+tflight, xmax, ymax = search_t_flight(v0, angle)
+
+print(type(float(tflight)))
+tfinal = st.slider("Temps (en secondes)", min_value=0.0, max_value=float(tflight), step=0.01, value=float(tflight/2))
+
+
 
 y = 0
 
@@ -38,7 +46,6 @@ v0 = 10
 angle = 45
 """
 
-tflight, xmax, ymax = search_t_flight(v0, angle)
 
 print(tflight, xmax)
 X, Y = [], []
@@ -51,6 +58,7 @@ while t < tfinal:
     Y.append(y)
     t += step
 
+fig, ax = plt.subplots()
 plt.plot(X, Y)
 plt.ylim(-ymax*0.05, ymax*1.1)
 plt.xlim(-xmax*0.05, xmax*1.1)
@@ -58,4 +66,4 @@ plt.xlabel("Distance (m)")
 plt.ylabel("Hauteur (m)")
 plt.title("Trajectoire du ballon de rugby en fonction du temps")
 # plt.show()
-st.pyplot()
+st.pyplot(fig)
