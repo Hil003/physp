@@ -1,13 +1,23 @@
 import streamlit as st
 
-# Titre de l'application
-st.title("La page about pour tester")
+# Page principale
+def main():
+    st.title("Ma superbe application Streamlit")
+    # Votre contenu ici
 
-# Sous-titre
-st.markdown("## Interface utilisateur interactive")
+# Page de retour
+def retour_page_principale():
+    st.title("Retour à la page principale")
+    st.write("Vous êtes revenu à la page principale.")
 
-# Zone de texte
-user_input = st.text_input("test de la deuxième page")
+# Vérifier si le bouton "Retour" est cliqué
+if st.button("Retour"):
+    # Revenir à la page principale
+    st.experimental_rerun()
 
-# Bouton
-button_clicked = st.button("Cliquez ici")
+# Vérifier quelle page afficher
+if __name__ == "__main__":
+    if st.session_state.page == "retour":
+        retour_page_principale()
+    else:
+        main()

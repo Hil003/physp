@@ -2,7 +2,25 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Chemin d'accès à l'image
+image_path = "Desktop/physp/"
+
+# Code HTML/CSS pour l'image de fond
+html_code = f'''
+<style>
+body {{
+    background-image: url("{image_path}");
+    background-size: cover;
+}}
+</style>
+'''
+
+# Affichage de l'image de fond
+st.markdown(html_code, unsafe_allow_html=True)
+
 g = 9.81  # Accélération due à la gravité
+
+
 
 
 def compute_ball_coordinates(v0, angle, t):
