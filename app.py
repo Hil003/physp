@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Chemin d'accès à l'image
-image_path = "Desktop/physp/"
+image_path = "Desktop/physp/image_rugby.jpg"
 
 # Code HTML/CSS pour l'image de fond
 html_code = f'''
