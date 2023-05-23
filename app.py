@@ -58,10 +58,12 @@ while t < tfinal:
     Y.append(y)
     t += step
 
+lim = max(xmax,ymax)
+
 fig, ax = plt.subplots()
 plt.plot(X, Y)
-plt.ylim(-ymax*0.05, ymax*1.1)
-plt.xlim(-xmax*0.05, xmax*1.1)
+plt.ylim(-lim*0.05, lim*1.1)
+plt.xlim(-lim*0.05, lim*1.1)
 plt.xlabel("Distance (m)")
 plt.ylabel("Hauteur (m)")
 plt.title("Trajectoire du ballon de rugby en fonction du temps")
