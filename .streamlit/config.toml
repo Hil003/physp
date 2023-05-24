@@ -1,0 +1,9 @@
+[theme]
+primaryColor = "#2456A3"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F2F2F2"
+textColor = "#000000"
+font = "sans serif"
+
+[theme.logo]
+backgroundColor = "#2456A3"
