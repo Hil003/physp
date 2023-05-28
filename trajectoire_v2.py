@@ -14,7 +14,7 @@ g = 9.81  # Accélération due à la gravité
 
 t0=0
 dt=0.1
-tf=4
+tf=10
 
 
 ### Paramètres initiaux sur le ballon
@@ -28,14 +28,14 @@ alpha = 60  #angle d'attaque du coup de pied
 gamma = 30 # angle de trajectoire de vol
 khi = 0  #angle d'azimuth de la vitesse
 
-w = 10 #norme de la vitesse de rotation en tour par seconde
+w = 20 #norme de la vitesse de rotation en tour par seconde
 
 
 X0 = 20 #position initiale du ballon
 Y0 = 50
-Z0 = -0.5
+Z0 = 0
 
-U = 20 #composantes de la vitesse initiale
+U = 32 #composantes de la vitesse initiale
 V = 0.1
 W = 0.1
 
@@ -165,7 +165,7 @@ def système(t, variables):
 
 
 initial_variables=[X0,Y0,Z0,U,V,W,P,Q,R,PSI,PHI,THET]
-num_points=30
+num_points=100
 t_eval = np.linspace(t0, tf, num_points)
 
 
@@ -189,5 +189,6 @@ THET = solution.y[11]
 
 
 
-plt.plot(Y,-Z)
+plt.plot(X,-Z)
+plt.ylim(bottom=0)
 
